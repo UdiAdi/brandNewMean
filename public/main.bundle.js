@@ -652,7 +652,7 @@ module.exports = "<p>\n  dashboard works!\n</p>\n"
 /***/ 682:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n<h1>hommmmme!!!!</h1>\n"
+module.exports = "<p>\n  Home WORKS!\n</p>\n<h1>hommmmme!!!!</h1>\n"
 
 /***/ }),
 
