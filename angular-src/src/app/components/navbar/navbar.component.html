@@ -1,0 +1,34 @@
+
+<!-- 
+
+DO NOT REMOVE THIS COMMENT
+
+<a [routerLink]="['/']">Home component!!!</a><br>
+<a *ngIf="!authService.loggedIn()" [routerLink]="['/register']">Register component!!!</a><br>
+<a *ngIf="!authService.loggedIn()" [routerLink]="['/login']">Login component!!!</a><br>
+<a *ngIf="authService.loggedIn()" [routerLink]="['/profile']">Profile component!!!</a><br>
+<a *ngIf="authService.loggedIn()" [routerLink]="['/dashboard']">Dashboard component!!!</a><br>
+<a *ngIf="authService.loggedIn()" (click)="onLogoutClick()" href="">Click to logout</a><br>
+ -->
+
+
+
+
+<ul id="dropdown1" class="dropdown-content">
+  	<li><a href="#!">Edit profile</a></li>
+  	<li><a *ngIf="authService.loggedIn()" (click)="onLogoutClick()" href="#!">Logout</a></li>
+</ul>
+
+<nav>
+    <div class="nav-wrapper">
+      	<a [routerLink]="['/']" class="brand-logo">Heading(Home)</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a *ngIf="!authService.loggedIn()" [routerLink]="['/register']">Register</a></li>
+          	<li><a *ngIf="!authService.loggedIn()" [routerLink]="['/login']">Login</a></li>
+          	<li><a *ngIf="authService.loggedIn()" [routerLink]="['/profile']">Profile</a></li>
+            <li><a *ngIf="authService.loggedIn()" [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li><a *ngIf="authService.loggedIn()" (click)="onLogoutClick()" href="">Logout</a></li>
+      	</ul>
+  	</div>
+</nav>
+
