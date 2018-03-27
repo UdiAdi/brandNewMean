@@ -307,6 +307,13 @@ var LoginComponent = (function () {
     }
     //private flashMessage : FlashMessageModule ) { }
     LoginComponent.prototype.ngOnInit = function () {
+        // loggedIn(){
+        // //console.log('Token (id_token) is ' + this.authToken + '   tokenNotExpired() is ' + tokenNotExpired());
+        // return tokenNotExpired('id_token');
+        // }
+        if (this.authService.loggedIn()) {
+            this.router.navigate(['/profile']);
+        }
     };
     LoginComponent.prototype.onLoginSubmit = function () {
         var _this = this;
@@ -382,7 +389,7 @@ var NavbarComponent = (function () {
     NavbarComponent.prototype.onLogoutClick = function () {
         this.authService.logout();
         //alert("You're logged out!");
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
         return false;
     };
     NavbarComponent = __decorate([
@@ -478,6 +485,9 @@ var RegisterComponent = (function () {
         this.router = router;
     }
     RegisterComponent.prototype.ngOnInit = function () {
+        if (this.authService.loggedIn()) {
+            this.router.navigate(['/profile']);
+        }
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
         var _this = this;
@@ -666,7 +676,7 @@ module.exports = "<p>\n  login works!\n</p>\n\n\n<form (submit)=\"onLoginSubmit(
 /***/ 684:
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- \n\nDO NOT REMOVE THIS COMMENT\n\n<a [routerLink]=\"['/']\">Home component!!!</a><br>\n<a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/register']\">Register component!!!</a><br>\n<a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/login']\">Login component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/profile']\">Profile component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/dashboard']\">Dashboard component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"\">Click to logout</a><br>\n -->\n\n\n\n\n<ul id=\"dropdown1\" class=\"dropdown-content\">\n  \t<li><a href=\"#!\">Edit profile</a></li>\n  \t<li><a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"#!\">Logout</a></li>\n</ul>\n\n<nav>\n    <div class=\"nav-wrapper\">\n      \t<a [routerLink]=\"['/']\" class=\"brand-logo\">Heading(Home)</a>\n        <ul class=\"right hide-on-med-and-down\">\n            <li><a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/register']\">Register</a></li>\n          \t<li><a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/login']\">Login</a></li>\n          \t<li><a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/profile']\">Profile</a></li>\n            <li><a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n            <li><a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"\">Logout</a></li>\n      \t</ul>\n  \t</div>\n</nav>\n\n"
+module.exports = "\n<!-- \n\nDO NOT REMOVE THIS COMMENT\n\n<a [routerLink]=\"['/']\">Home component!!!</a><br>\n<a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/register']\">Register component!!!</a><br>\n<a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/login']\">Login component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/profile']\">Profile component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/dashboard']\">Dashboard component!!!</a><br>\n<a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"\">Click to logout</a><br>\n -->\n\n\n\n<!-- \n<ul id=\"dropdown1\" class=\"dropdown-content\">\n  \t<li><a href=\"#!\">Edit profile</a></li>\n  \t<li><a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"#!\">Logout</a></li>\n</ul>\n -->\n \n<nav>\n    <div class=\"nav-wrapper\">\n      \t<a [routerLink]=\"['/']\" class=\"brand-logo\">Heading(Home)</a>\n        <ul class=\"right hide-on-med-and-down\">\n            <li><a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/register']\">Register</a></li>\n          \t<li><a *ngIf=\"!authService.loggedIn()\" [routerLink]=\"['/login']\">Login</a></li>\n          \t<li><a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/profile']\">Profile</a></li>\n            <li><a *ngIf=\"authService.loggedIn()\" [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n            <li><a *ngIf=\"authService.loggedIn()\" (click)=\"onLogoutClick()\" href=\"\">Logout</a></li>\n      \t</ul>\n  \t</div>\n</nav>\n\n"
 
 /***/ }),
 
