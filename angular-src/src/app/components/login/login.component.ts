@@ -26,6 +26,16 @@ export class LoginComponent implements OnInit {
     //private flashMessage : FlashMessageModule ) { }
 
   ngOnInit() {
+
+    // loggedIn(){
+    // //console.log('Token (id_token) is ' + this.authToken + '   tokenNotExpired() is ' + tokenNotExpired());
+    // return tokenNotExpired('id_token');
+    // }
+
+    if(this.authService.loggedIn()){
+      this.router.navigate(['/profile']);
+    }
+
   }
 
   onLoginSubmit(){
