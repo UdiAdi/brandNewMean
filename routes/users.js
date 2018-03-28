@@ -79,4 +79,64 @@ router.get('/profile', passport.authenticate('jwt', {session : false}), function
 
 
 
+
+
+router.post('/usersearch/:id', function(req, res, next){
+
+const iddd = req.param.id;
+console.log('udit' + iddd);
+
+//alert('inside usersearch');
+console.log('inside usersearch');
+
+
+	const sq = req.body.srch;
+	console.log(sq);
+	User.getUserByUsername(sq, function(err, userrr){
+		if(err)
+			throw err;
+		if(!userrr){
+			console.log('not foundd!!');
+			return res.json({success : false, msg : 'User not found'});
+		}
+		else{
+			console.log('Foundd!!');
+			return res.json({success : true, userrr : { id : userrr.id, name : userrr.name, username : userrr.username}});	
+		}
+	});
+
+	//res.json({'haha' : 'hoho'});
+});
+
+
+// router.get('/usersearch/:id', function(req, res, next){
+
+// console.log(id);
+// alert(id);
+
+// console.log('inside usersearch id wala');
+// alert('inside usersearch id wala');
+
+// 	// const sq = req.body.srch;
+// 	// console.log(sq);
+// 	// User.getUserByUsername(sq, function(err, userrr){
+// 	// 	if(err)
+// 	// 		throw err;
+// 	// 	if(!userrr){
+// 	// 		console.log('not foundd!!');
+// 	// 		return res.json({success : false, msg : 'User not found'});
+// 	// 	}
+// 	// 	else{
+// 	// 		console.log('Foundd!!');
+// 	// 		return res.json({success : true, userrr : { id : userrr.id, name : userrr.name, username : userrr.username}});	
+// 	// 	}
+// 	// });
+
+// 	//res.json({'haha' : 'hoho'});
+// });
+
+
+
+
+
 module.exports = router;

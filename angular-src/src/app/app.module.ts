@@ -16,11 +16,13 @@ import { ValidateService} from './services/validate.service';
 import { AuthService} from './services/auth.service';
 //import { FlashMessageModule } from 'angular-flash-message';
 import { AuthGuard } from './guards/auth.guard';
+import { UsersearchComponent } from './components/usersearch/usersearch.component';
 
 const appRoutes: Routes = [
   {path : '', component : HomeComponent},
   {path : 'register', component : RegisterComponent},
   {path : 'login', component : LoginComponent},
+  {path : 'usersearch/:id', component : UsersearchComponent},
   {path : 'dashboard', component : DashboardComponent, canActivate : [AuthGuard]},
   {path : 'profile', component : ProfileComponent, canActivate : [AuthGuard]}
 ];
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     DashboardComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersearchComponent
   ],
   imports: [
     BrowserModule,

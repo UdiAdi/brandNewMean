@@ -19,11 +19,12 @@ DO NOT REMOVE THIS COMMENT
   	<li><a *ngIf="authService.loggedIn()" (click)="onLogoutClick()" href="#!">Logout</a></li>
 </ul>
  -->
- 
+
 <nav>
     <div class="nav-wrapper">
       	<a [routerLink]="['/']" class="brand-logo">Heading(Home)</a>
         <ul class="right hide-on-med-and-down">
+            <!-- <li><a [routerLink]="['/usersearch']">Search Users</a></li> -->
             <li><a *ngIf="!authService.loggedIn()" [routerLink]="['/register']">Register</a></li>
           	<li><a *ngIf="!authService.loggedIn()" [routerLink]="['/login']">Login</a></li>
           	<li><a *ngIf="authService.loggedIn()" [routerLink]="['/profile']">Profile</a></li>
@@ -32,4 +33,10 @@ DO NOT REMOVE THIS COMMENT
       	</ul>
   	</div>
 </nav>
+
+<!-- <form (submit)="displayUsers()">
+  Search for users here: <input type="text" name="sname" [(ngModel)]="sname"><br>
+  <input type="submit" value="Search"><br>
+</form> -->
+
 

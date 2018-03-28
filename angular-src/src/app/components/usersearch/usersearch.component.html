@@ -1,0 +1,31 @@
+<div id="udit">
+	<form (submit)="displayUsers()">
+	  
+		<div class="row valign-wrapper center-align">
+			<div class="col s3 center-align">
+				Search for users here: 
+			</div>
+			<div class="col s3 center-align">
+				<input type="text" name="sname" [(ngModel)]="sname">
+			</div>
+			<div class="col s3 center-align">
+				<input type="submit" value="Search">
+			</div>
+		</div>
+	  
+	</form>
+
+	<div *ngIf="user">
+		
+		<h3>This is NOT your profile</h3>
+		<a *ngIf="authService.loggedIn()" [routerLink]="['/profile']"><h4>Click here for your own profile</h4></a>
+
+		<p>
+			This is {{ user.name }}'s profile page.
+		</p>
+		<p>
+			username is {{ user.username }}
+		</p>
+		
+	</div>
+</div>
